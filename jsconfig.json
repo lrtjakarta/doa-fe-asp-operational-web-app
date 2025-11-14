@@ -1,0 +1,46 @@
+{
+    "compilerOptions": {
+        "skipLibCheck": true,
+        "strict": false,
+        "forceConsistentCasingInFileNames": false,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "baseUrl": "src",
+        "paths": {
+            "Component/*": [
+                "src/Component/*"
+            ],
+            "Config/*": [
+                "src/Config/*"
+            ],
+            "Context/*": [
+                "src/Context/*"
+            ],
+            "Hooks/*": [
+                "src/Hooks/*"
+            ],
+            "Routes/*": [
+                "src/Routes/*"
+            ],
+            "Pages/*": [
+                "src/Pages/*"
+            ],
+            "Services/*": [
+                "src/Services/*"
+            ],
+            "Themes/*": [
+                "src/Themes/*"
+            ],
+            "Utils/*": [
+                "src/Utils/*"
+            ]
+        }
+    },
+    "include": [
+        "src"
+    ]
+}

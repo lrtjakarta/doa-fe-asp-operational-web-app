@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow&display=swap');
+.barlow {
+  font-family: Barlow;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 15px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cacccf;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2d6e83;
+}

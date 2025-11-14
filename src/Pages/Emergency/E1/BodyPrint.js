@@ -1,0 +1,162 @@
+import React from 'react';
+import './DataTable.css';
+
+import { Box, Grid, Stack, Typography } from '@mui/material';
+
+import Typography14 from 'Component/Typography/Typography14';
+import GenerateQr from 'Component/GenerateQRCode/GenerateQr';
+import moment from 'moment';
+
+function BodyPrint({ dataId }) {
+	const _info1 = dataId?.information?.name1?.information;
+	const _info2 = dataId?.information?.name2?.information;
+	const _info3 = dataId?.information?.name3?.information;
+	const _info4 = dataId?.information?.footer?.information;
+
+	return (
+		<Box>
+			<Grid container spacing={1}>
+				<Grid item xs={12} sm={4}>
+					<Typography14 title="No. urut dibuku " />
+				</Grid>
+				<Grid item xs={12} sm={8}>
+					<Typography14 title={':' + ' ' + dataId?.serialNumber} />
+				</Grid>
+				<Grid item xs={12} sm={4}>
+					<Typography14 title="Nama Masinis" />
+				</Grid>
+				<Grid item xs={12} sm={8}>
+					<Typography14
+						title={
+							':' + ' ' + (dataId?.masinis ? dataId?.masinis?.officerName : '-')
+						}
+					/>
+				</Grid>
+				<Grid item xs={12} sm={4}>
+					<Typography14 title="Nama Dispatcher" />
+				</Grid>
+				<Grid item xs={12} sm={8}>
+					<Typography14
+						title={
+							':' +
+							' ' +
+							(dataId?.dispatcher ? dataId?.dispatcher?.officerName : '-')
+						}
+					/>
+				</Grid>
+				<Grid item xs={12} sm={4}>
+					<Typography14 title="Hari, Tanggal" />
+				</Grid>
+				<Grid item xs={12} sm={8}>
+					<Typography14
+						title={':' + ' ' + moment(dataId?.date).format('DD/MM/YYYY')}
+					/>
+				</Grid>
+				<Grid item xs={12} sm={4}>
+					<Typography14 title="Pukul" />
+				</Grid>
+				<Grid item xs={12} sm={8}>
+					<Typography14 title={':' + ' ' + dataId?.time} />
+				</Grid>
+				<Grid item xs={12} sm={4}>
+					<Typography14 title="KA No." />
+				</Grid>
+				<Grid item xs={12} sm={8}>
+					<Typography14 title={':' + ' ' + dataId?.trainNumber} />
+				</Grid>
+				<Grid item xs={12} sm={12} sx={{ mt: 2 }}>
+					<table className="data-table">
+						<tbody>
+							<tr>
+								<td>
+									<Typography14 title="Diizinkan melewati sinyal tidak aman, unutk :" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</Grid>
+				<Grid item xs={12} sm={12}>
+					<Box sx={{ p: '0px 10px' }}>
+						<Typography
+							sx={{ fontSize: 13, mt: '10px', mb: '10px' }}
+							dangerouslySetInnerHTML={{
+								__html: _info1,
+							}}
+						/>
+					</Box>
+				</Grid>
+				<Grid item xs={12} sm={12}>
+					<table className="data-table">
+						<tbody>
+							<tr>
+								<td colSpan={2}>
+									<Typography14 title="Instruksi Khusus :" />
+								</td>
+							</tr>
+							<tr>
+								<td width="10px">
+									<Typography14 title="1." />
+								</td>
+								<td>
+									<Typography14 title="Instruksi Khusus :" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</Grid>
+				<Grid item xs={12} sm={12}>
+					<Box sx={{ p: '0px 10px' }}>
+						<Typography
+							sx={{ fontSize: 13, mt: '10px', mb: '10px' }}
+							dangerouslySetInnerHTML={{
+								__html: _info2,
+							}}
+						/>
+					</Box>
+				</Grid>
+				<Grid item xs={12} sm={12} sx={{ mt: 4 }}>
+					<Box sx={{ p: '0px 10px' }}>
+						<Typography
+							sx={{ fontSize: 13, mt: '10px', mb: '10px' }}
+							dangerouslySetInnerHTML={{
+								__html: _info3,
+							}}
+						/>
+					</Box>
+				</Grid>
+				{dataId?.masinis && dataId.dispatcher ? (
+					<>
+						<Grid
+							item
+							xs={12}
+							sm={12}
+							sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}
+						>
+							<Stack direction="column" alignItems="center">
+								<Typography14 title={dataId?.createdBy?.officerPosition} />
+								<Box sx={{ minHeight: '70px' }}>
+									{dataId?.createdBy?.officerNumber !== '' && (
+										<GenerateQr dataId={dataId?.createdBy?.officerNumber} />
+									)}
+								</Box>
+								<Typography14 title={dataId?.createdBy?.officerName} />
+							</Stack>
+						</Grid>
+						<Grid item xs={12} sm={12} sx={{ mt: 2 }}>
+							<Box sx={{ p: '0px 10px' }}>
+								<Typography
+									sx={{ fontSize: 13, mt: '10px', mb: '10px' }}
+									dangerouslySetInnerHTML={{
+										__html: _info4,
+									}}
+								/>
+							</Box>
+						</Grid>
+					</>
+				) : null}
+			</Grid>
+		</Box>
+	);
+}
+
+export default BodyPrint;

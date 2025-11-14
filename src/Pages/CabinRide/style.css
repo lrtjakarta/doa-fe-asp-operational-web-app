@@ -1,0 +1,7 @@
+@media screen {
+    .print {
+        /* visibility: hidden; */
+        /* height: 0; */
+        display: none;
+    }
+}
