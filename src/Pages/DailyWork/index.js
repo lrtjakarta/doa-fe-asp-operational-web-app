@@ -2107,7 +2107,9 @@ export default function DailyWork() {
 
                                           </TableCell>
                                           <TableCell align="center">
-                                            {itemdetail?.loop?.lrv?.map(item=>item+"|")}
+                                            {Array.isArray(itemdetail?.loop?.lrv) && itemdetail.loop.lrv.length > 0
+  ? itemdetail.loop.lrv.map(item => item + "|")
+  : "-"}
                                           </TableCell>
                                           
                                           <TableCell align="left">

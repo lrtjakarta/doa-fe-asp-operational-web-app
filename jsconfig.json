@@ -6,37 +6,38 @@
         "noEmit": true,
         "esModuleInterop": true,
         "moduleResolution": "node",
+        "ignoreDeprecations": "6.0",
         "resolveJsonModule": true,
         "isolatedModules": true,
         "jsx": "preserve",
-        "baseUrl": "src",
+        "baseUrl": "./src",
         "paths": {
             "Component/*": [
-                "src/Component/*"
+                "./Component/*"
             ],
             "Config/*": [
-                "src/Config/*"
+                "./Config/*"
             ],
             "Context/*": [
-                "src/Context/*"
+                "./Context/*"
             ],
             "Hooks/*": [
-                "src/Hooks/*"
+                "./Hooks/*"
             ],
             "Routes/*": [
-                "src/Routes/*"
+                "./Routes/*"
             ],
             "Pages/*": [
-                "src/Pages/*"
+                "./Pages/*"
             ],
             "Services/*": [
-                "src/Services/*"
+                "./Services/*"
             ],
             "Themes/*": [
-                "src/Themes/*"
+                "./Themes/*"
             ],
             "Utils/*": [
-                "src/Utils/*"
+                "./Utils/*"
             ]
         }
     },

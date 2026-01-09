@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:20-slim
 
 WORKDIR /app
 
@@ -22,4 +22,4 @@ ENV PORT=3000
 EXPOSE 3000
 
 # Jalankan React dev server memakai dotenv dan react-app-rewired
-CMD ["sh", "-c", "export PORT=$PORT && dotenv -e .env react-app-rewired start"]
+CMD ["sh", "-c", "export PORT=$PORT && dotenv -e .env node node_modules/.bin/react-app-rewired start"]
